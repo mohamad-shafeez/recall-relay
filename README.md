@@ -59,21 +59,9 @@ On 16 November 2026, Naia, Inc. recalled its **Chocolate Banana Bar Sorbetto** b
 
 One click on **Run Coordinated Response** runs nine steps. Each step is saved, so the timeline survives a page refresh.
 
-```mermaid
-flowchart LR
-    A[1. Get the<br/>official notice] --> B[2. Extract facts<br/>and check dates]
-    B --> C[3. Lyzr reads<br/>the notice]
-    C --> D[4. Check every fact<br/>against the source]
-    D --> E[5. Work out<br/>the recall scope]
-    E --> F[6. Look for maker,<br/>distributor, store records]
-    F --> G[7. Scope agent talks to<br/>Verification agent on BAND]
-    G --> H[8. Double-check<br/>and flag conflicts]
-    H --> I[9. Ask a person<br/>to approve]
-
-    style F fill:#F4DED2,stroke:#702B3A
-    style G fill:#F4DED2,stroke:#702B3A
-    style I fill:#702B3A,color:#ffffff,stroke:#4A1F2B
-```
+<p align="center">
+  <img src="docs/images/flow.svg" alt="The nine steps of one coordinated response, from fetching the official notice to asking a person to approve" width="100%">
+</p>
 
 | Step | What happens | If something is missing |
 | :-: | :-- | :-- |
@@ -153,7 +141,7 @@ We would rather be clear than impressive.
 You need **Python 3.11+** and **Node.js 18+**. These commands are for Windows PowerShell.
 
 ```powershell
-git clone <this-repo-url>
+git clone https://github.com/mohamad-shafeez/recall-relay.git
 cd recall-relay
 
 # 1. Create your settings file (never commit .env)
@@ -224,7 +212,7 @@ docker compose up --build
 | **Event** | Diwali Festiverse: Agent-to-Agent Hackathon (India Edition), HiDevs |
 | **Track** | Research: Data & Build |
 | **How it fits** | A data side gathers official recall evidence. A builder side turns it into a working response dashboard |
-| **Built by** | _your name_ |
+| **Built by** | mohamad shafeez |
 | **Demo video** | _link_ |
 
 <p align="center"><sub>RecallRelay: the most useful thing it can say is sometimes "we don't know yet."</sub></p>
