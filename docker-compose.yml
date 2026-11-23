@@ -1,0 +1,21 @@
+services:
+  recall-relay:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - APP_ENV=development
+      - SESSION_COOKIE_SECURE=false
+      - APP_ORIGINS=http://localhost:8000,http://127.0.0.1:8000
+      - CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
+      - A2A_TRANSPORT=internal_sqlite
+      - DATABASE_PATH=/app/backend/data/recall_relay.db
+    volumes:
+      - recall_relay_data:/app/backend/data
+
+volumes:
+  recall_relay_data:

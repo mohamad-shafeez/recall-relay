@@ -1,0 +1,38 @@
+# Render Blueprint for RecallRelay (Free Tier — No Credit Card Required)
+# IMPORTANT PERSISTENCE NOTICE:
+# Render Free Web Services use an ephemeral filesystem (persistent disks require a paid plan).
+# Do NOT treat SQLite on Render Free as durable long-term storage across restarts.
+# For durable local/self-hosted persistence, use docker-compose.yml with the named volume.
+
+services:
+  - type: web
+    name: recall-relay
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: DEMO_MODE
+        value: "true"
+      - key: SESSION_COOKIE_SECURE
+        value: "true"
+      - key: DATABASE_PATH
+        value: /tmp/recall_relay.db
+      - key: ADMIN_API_KEY
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: BAND_API_BASE_URL
+        sync: false
+      - key: BAND_API_KEY
+        sync: false
+      - key: BAND_AGENT_ID
+        sync: false
+      - key: LYZR_API_KEY
+        sync: false
+      - key: LYZR_AGENT_ID
+        sync: false
+      - key: FINCH_API_KEY
+        sync: false

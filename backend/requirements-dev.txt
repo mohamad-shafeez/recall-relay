@@ -1,0 +1,4 @@
+-r requirements.txt
+
+# Development and test runner dependencies (not required in production runtime images)
+pytest>=8.0.0,<9.0.0
